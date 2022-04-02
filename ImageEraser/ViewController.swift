@@ -8,12 +8,17 @@
 import UIKit
 
 class ViewController: UIViewController {
+    @IBOutlet weak var eraseView: EraseImageView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        eraseView.backgroundImage = #imageLiteral(resourceName: "back")
+        eraseView.setForegroundImage(#imageLiteral(resourceName: "front"))
     }
 
+    @IBAction func eraseTypeChangeSegmentAction(_ sender: UISegmentedControl) {
+        eraseView.setTouchRevealsImage(sender.selectedSegmentIndex != 0)
+    }
 
 }
 
